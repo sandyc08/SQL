@@ -1,0 +1,50 @@
+--Made List of Data to Input
+/** Items:
+Shirts (20)
+Jeans (13)
+Slacks (10)
+Dresses (19)
+Shorts (17)
+Leggings (12)
+Bras (9)
+Underwear (21)
+Bodysuits (16)
+Tshirts (14)
+Socks (9)
+Skirts (18)
+Croptops (15)
+Earrings (19)
+Necklaces (10)
+Bracelets (13) **/
+
+--Create Database for store items
+
+CREATE TABLE Sandys (id INTEGER PRIMARY KEY, name TEXT, quantity INTEGER, prices INTEGER, sale TEXT);
+
+INSERT INTO Sandys VALUES (1, "Shirts", 20, 30, "no");
+INSERT INTO Sandys VALUES (2, "Jeans", 13, 50, "yes");
+INSERT INTO Sandys VALUES (3, "Slacks", 10, 40, "yes");
+INSERT INTO Sandys VALUES (4, "Dresses", 19, 20, "no");
+INSERT INTO Sandys VALUES (5, "Shorts", 17, 20, "no");
+INSERT INTO Sandys VALUES (6, "Leggings", 12, 30, "no");
+INSERT INTO Sandys VALUES (7, "Bras", 9, 30, "no");
+INSERT INTO Sandys VALUES (8, "Underwear", 21, 5, "yes");
+INSERT INTO Sandys VALUES (9, "Bodysuits", 16, 25, "no");
+INSERT INTO Sandys VALUES (10, "Tshirts", 14, 15, "no");
+INSERT INTO Sandys VALUES (11, "Socks", 9, 5, "yes");
+INSERT INTO Sandys VALUES (12, "Skirts", 18, 20, "no");
+INSERT INTO Sandys VALUES (13, "Croptops", 15, 15, "no");
+INSERT INTO Sandys VALUES (14, "Earrings", 19, 5, "yes");
+INSERT INTO Sandys VALUES (15, "Necklaces", 10, 5, "yes");
+
+--Display Items Organized by Price in descending order
+SELECT * FROM Sandys ORDER BY Prices desc;
+
+--Display lowest price
+SELECT Min(prices) from Sandys;
+
+-- Display sum of all stock 
+SELECT Sum(quantity) from Sandys; 
+
+--Display items marked on sale
+SELECT * FROM Sandys Where sale = "yes"
