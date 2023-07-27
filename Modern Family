@@ -1,0 +1,56 @@
+CREATE TABLE family_members (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name TEXT,
+    age INTEGER,
+    spouse INTEGER,
+    occupation TEXT);
+
+INSERT INTO family_members (name, age, spouse, occupation) VALUES ("Jay Pritchett", 65, 2, "CEO");
+INSERT INTO family_members (name, age, spouse, occupation) VALUES ("Gloria Pritchett", 38, 1, "Homemaker");
+INSERT INTO family_members (name, age, spouse, occupation) VALUES ("Manny Delgado", 14, NULL, "Student");
+INSERT INTO family_members (name, age, spouse, occupation) VALUES ("Phil Dunphy", 42, 5, "Realtor");
+INSERT INTO family_members (name, age, spouse, occupation) VALUES ("Claire Dunphy", 42, 4, "Homemaker");
+INSERT INTO family_members (name, age, spouse, occupation) VALUES ("Hailey Dunphy", 18, NULL, "Student");
+INSERT INTO family_members (name, age, spouse, occupation) VALUES ("Alex Dunphy", 16, NULL, "Student");
+INSERT INTO family_members (name, age, spouse, occupation) VALUES ("Luke Dunphy", 14, NULL, "Student");
+INSERT INTO family_members (name, age, spouse, occupation) VALUES ("Mitchell Pritchett-Tucker", 40, 10, "Attorney");
+INSERT INTO family_members (name, age, spouse, occupation) VALUES ("Cameron Pritchett-Tucker", 40, 9, "Music Teacher");
+INSERT INTO family_members (name, age, spouse, occupation) VALUES ("Lily Pritchett-Tucker", 5, NULL, "Student");
+
+
+CREATE TABLE parents (
+    id INTEGER PRIMARY KEY,
+    parents TEXT);
+
+INSERT INTO parents (parents) VALUES ("Phil & Claire");
+INSERT INTO parents (parents) VALUES ("Jay & Gloria");
+INSERT INTO parents (parents) VALUES ("Mitch & Cam");
+
+ CREATE TABLE kids (
+    id INTEGER PRIMARY KEY,
+    name TEXT,
+    age INTEGER,
+    parents_id INTEGER);
+
+   
+INSERT INTO kids (name, age, parents_id) VALUES ("Lily Pritchett-Tucker", 5, 3);
+INSERT INTO kids (name, age, parents_id) VALUES ("Hailey Dunphy", 18, 1);
+INSERT INTO kids (name, age, parents_id) VALUES ("Alex Dunphy", 16, 1);
+INSERT INTO kids (name, age, parents_id) VALUES ("Luke Dunphy", 14, 1);
+INSERT INTO kids (name, age, parents_id) VALUES ("Manny Delgado", 14, 2);
+
+
+SELECT * from family_members;
+SELECT * from kids;
+SELECT * from parents;
+
+SELECT kids.name, kids.age, parents.parents
+    FROM kids
+    JOIN parents
+    ON kids.parents_id = parents.id
+    ;
+
+SELECT family_members.name, family_members.age, spouses.name as spouse
+    FROM family_members
+    LEFT OUTER JOIN family_members spouses
+    ON spouses.id = family_members.spouse;
